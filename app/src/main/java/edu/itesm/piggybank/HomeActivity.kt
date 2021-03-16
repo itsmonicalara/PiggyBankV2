@@ -18,6 +18,6 @@ class HomeActivity : AppCompatActivity() {
             val intento = Intent(this, MainActivity::class.java)
             startActivity(intento)
             finish()
-        }, 7000)
+        }, 5000)
     }
 }

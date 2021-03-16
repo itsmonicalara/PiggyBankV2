@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/piggyFragment">
 
+    <fragment
+        android:id="@+id/piggyFragment"
+        android:name="edu.itesm.piggybank.PiggyFragment"
+        android:label="fragment_piggy"
+        tools:layout="@layout/fragment_piggy" >
+        <action
+            android:id="@+id/action_piggyFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="edu.itesm.piggybank.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_perfilesFragment"
+            app:destination="@id/perfilesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfilesFragment"
+        android:name="edu.itesm.piggybank.PerfilesFragment"
+        android:label="fragment_perfiles"
+        tools:layout="@layout/fragment_perfiles" >
+        <action
+            android:id="@+id/action_perfilesFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="edu.itesm.piggybank.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
 </navigation>
