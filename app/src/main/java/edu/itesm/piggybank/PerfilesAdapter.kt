@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 class PerfilesAdapter(private val perfiles : List<Perfil>)
@@ -29,6 +30,10 @@ class PerfilesAdapter(private val perfiles : List<Perfil>)
         holder.nombre.text = perfil.nombre
         holder.edad.text = perfil.edad
         holder.historia.text = perfil.historia
+        holder.itemView.setOnClickListener(){
+            val action = PerfilesFragmentDirections.actionPerfilesFragmentToPerfilFragment(perfil)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {
