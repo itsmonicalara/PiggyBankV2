@@ -31,7 +31,7 @@ class PerfilesAdapter(private val perfiles : List<Perfil>)
         holder.edad.text = perfil.edad
         holder.historia.text = perfil.historia
         holder.itemView.setOnClickListener(){
-            val action = PerfilesFragmentDirections.actionPerfilesFragmentToPerfilFragment(perfil)
+            val action = PerfilesFragmentDirections.actionPerfilesFragmentToPerfilFragment()
             holder.itemView.findNavController().navigate(action)
         }
     }

@@ -41,9 +41,10 @@ class PerfilesFragment : Fragment() {
 
     fun createData(): ArrayList<Perfil>{
         val perfiles = ArrayList<Perfil>()
-        perfiles.add(Perfil(R.drawable.duvall, "Shelley Duvalle", "71", "Shelley Alexis Duvall (n. Houston, Texas; 7 de julio de 1949) es una actriz retirada de cine y televisión, productora, escritora y cantante retirada estadounidense. "))
-        perfiles.add(Perfil(R.drawable.desire, "Shelley Winters", "Fallecida", "Shirley Schrift, más conocida como Shelley Winters (San Luis, Misuri, 18 de agosto de 1920-Beverly Hills, California, 14 de enero de 2006"))
-        perfiles.add(Perfil(R.drawable.gary, "Gary Lockwood", "Fallecido", "Gary Lockwood es un actor estadounidense nacido en 1937, conocido fundamentalmente por sus interpretaciones del astronauta Frank Poole en la película 2001"))
+        perfiles.add(Perfil(R.drawable.boy1_, "Billy Rodriguez", "10", "Me gustaría ahorrar para comprarme una bici."))
+        perfiles.add(Perfil(R.drawable.girl1_, "Ana Perez", "12", "Quiero un iPad y por eso ahorrare mis domingos."))
+        perfiles.add(Perfil(R.drawable.girl2_, "Paola Diaz", "11", "Todos mis ahorros van a ser para mi viaje a Disney."))
+        perfiles.add(Perfil(R.drawable.boy2_, "Tommy Sanchez", "8", "Solo quiero ahorrar."))
         return perfiles
     }
 
