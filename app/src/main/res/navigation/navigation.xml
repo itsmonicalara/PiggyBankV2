@@ -48,5 +48,9 @@
         android:id="@+id/perfilFragment"
         android:name="edu.itesm.piggybank.PerfilFragment"
         android:label="fragment_perfil"
-        tools:layout="@layout/fragment_perfil" />
+        tools:layout="@layout/fragment_perfil" >
+        <argument
+            android:name="perfil"
+            app:argType="edu.itesm.piggybank.Perfil" />
+    </fragment>
 </navigation>

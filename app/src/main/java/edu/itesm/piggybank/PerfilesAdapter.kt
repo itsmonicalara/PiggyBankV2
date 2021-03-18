@@ -25,14 +25,14 @@ class PerfilesAdapter(private val perfiles : List<Perfil>)
     }
 
     override fun onBindViewHolder(holder: PerfilViewHolder, position: Int) {
-        val perfil= perfiles[position]
+        val perfil = perfiles[position]
         holder.foto.setImageResource(perfil.picture)
         holder.nombre.text = perfil.nombre
         holder.edad.text = perfil.edad
         holder.historia.text = perfil.historia
         holder.itemView.setOnClickListener(){
-            val action = PerfilesFragmentDirections.actionPerfilesFragmentToPerfilFragment()
-            holder.itemView.findNavController().navigate(action)
+            val action = PerfilesFragmentDirections.actionPerfilesFragmentToPerfilFragment(perfil)
+            holder.itemView?.findNavController()?.navigate(action)
         }
     }
 

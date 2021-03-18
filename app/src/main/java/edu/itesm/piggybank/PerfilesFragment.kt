@@ -30,11 +30,10 @@ class PerfilesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_perfiles, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(itemView, savedInstanceState)
         perfiles_recycler.apply{
             layoutManager = LinearLayoutManager(activity)
-            // set the custom adapter to the RecyclerView
             adapter = PerfilesAdapter(createData())
         }
     }
