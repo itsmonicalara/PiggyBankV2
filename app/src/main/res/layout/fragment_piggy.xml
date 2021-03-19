@@ -34,16 +34,13 @@
             android:layout_width="328dp"
             android:layout_height="585dp"
             android:layout_marginStart="41dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="42dp"
-            android:layout_marginBottom="130dp"
+            android:layout_marginBottom="148dp"
             android:src="@drawable/first_1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
@@ -81,7 +78,9 @@
             android:id="@+id/iniciar_boton"
             android:layout_width="162dp"
             android:layout_height="64dp"
+            android:fontFamily="@font/poppins_medium"
             android:text="Iniciar sesión"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.164"
@@ -93,7 +92,9 @@
             android:id="@+id/registrar_boton"
             android:layout_width="127dp"
             android:layout_height="66dp"
+            android:fontFamily="@font/poppins_medium"
             android:text="Registrar"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.852"

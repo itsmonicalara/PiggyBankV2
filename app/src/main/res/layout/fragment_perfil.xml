@@ -32,7 +32,7 @@
                 android:id="@+id/nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="titulo"
+                android:text="name"
                 android:textColor="@color/purple_500"
                 android:textStyle="bold" />
 
@@ -40,7 +40,7 @@
                 android:id="@+id/edad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="anio"
+                android:text="age"
                 android:textColor="@color/black"
                 android:textStyle="italic" />
 
@@ -48,7 +48,7 @@
                 android:id="@+id/descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="plot" />
+                android:text="description" />
 
         </LinearLayout>
     </LinearLayout>

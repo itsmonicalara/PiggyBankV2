@@ -21,7 +21,6 @@ class PerfilFragment : Fragment() {
 
     private val args by navArgs<PerfilFragmentArgs>()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
