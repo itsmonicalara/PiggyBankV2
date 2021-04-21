@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "919890826893",
+    "project_id": "piggybank-a6d14",
+    "storage_bucket": "piggybank-a6d14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919890826893:android:3c0a8421434eed6533b4c4",
+        "android_client_info": {
+          "package_name": "edu.itesm.piggybank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919890826893-hhrq74mv27gdaa62grb4c2u7qk19nets.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeRk_aZz3Xwv3TX2oDkih-qBaFnvHB5RQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919890826893-hhrq74mv27gdaa62grb4c2u7qk19nets.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
