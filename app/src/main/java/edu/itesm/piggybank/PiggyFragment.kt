@@ -36,10 +36,10 @@ class PiggyFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         iniciar_boton.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_piggyFragment_to_firstFragment)
+            view?.findNavController()?.navigate(R.id.loginAction)
         }
         registrar_boton.setOnClickListener{
-            view?.findNavController()?.navigate(R.id.action_piggyFragment_to_firstFragment)
+            view?.findNavController()?.navigate(R.id.piggyFragmentToRegister)
         }
     }
 
