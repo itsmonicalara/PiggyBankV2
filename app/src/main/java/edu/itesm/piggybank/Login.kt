@@ -35,6 +35,7 @@ class Login : Fragment() {
         // Inicializa objetos:
         auth = Firebase.auth
         iniciarSesionBoton.setOnClickListener {iniciarSesion()}
+        olvideContra.setOnClickListener { view?.findNavController()?.navigate(R.id.olvideContrasena3) }
     }
 
     fun iniciarSesion(){
