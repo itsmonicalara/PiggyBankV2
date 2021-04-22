@@ -45,7 +45,7 @@ class Login : Fragment() {
             ).addOnCompleteListener{
                 if(it.isSuccessful){
                     Toast.makeText(this.context,"Bienvenido", Toast.LENGTH_LONG).show()
-                    view?.findNavController()?.navigate(R.id.firstFragment)
+                    view?.findNavController()?.navigate(R.id.loginToFirst)
                 }else{
                     Toast.makeText(this.context,"Usuario o contraseña son incorrectos", Toast.LENGTH_LONG).show()
                 }

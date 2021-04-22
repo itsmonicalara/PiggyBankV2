@@ -75,5 +75,9 @@
         android:id="@+id/login"
         android:name="edu.itesm.piggybank.Login"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/loginToFirst"
+            app:destination="@id/firstFragment" />
+    </fragment>
 </navigation>
