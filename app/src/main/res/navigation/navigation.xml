@@ -37,6 +37,9 @@
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_firstFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/perfilesFragment"
@@ -88,4 +91,9 @@
         android:name="edu.itesm.piggybank.OlvideContrasena"
         android:label="fragment_olvide_contrasena"
         tools:layout="@layout/fragment_olvide_contrasena" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="edu.itesm.piggybank.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

@@ -107,7 +107,7 @@
             android:id="@+id/perfiles_boton"
             android:layout_width="166dp"
             android:layout_height="61dp"
-            android:layout_marginBottom="88dp"
+            android:layout_marginBottom="188dp"
             android:fontFamily="@font/poppins_medium"
             android:text="Perfiles"
             android:textSize="18sp"
@@ -137,6 +137,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.195"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/config_boton"
+            android:layout_width="182dp"
+            android:layout_height="58dp"
+            android:layout_marginBottom="92dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="CONFIGURACIÓN"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
 

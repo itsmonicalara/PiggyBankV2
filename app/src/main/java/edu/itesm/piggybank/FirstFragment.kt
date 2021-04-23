@@ -38,5 +38,8 @@ class FirstFragment : Fragment() {
         perfiles_boton.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_firstFragment_to_perfilesFragment)
         }
+        config_boton.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_firstFragment_to_settingsFragment)
+        }
     }
 }
