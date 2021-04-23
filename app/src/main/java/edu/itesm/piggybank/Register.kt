@@ -1,6 +1,7 @@
 package edu.itesm.piggybank
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.auth.api.signin.SignInAccount
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import edu.itesm.piggybank.databinding.FragmentRegisterBinding
 import kotlinx.android.synthetic.main.fragment_register.*
@@ -23,7 +26,8 @@ class Register : Fragment() {
 
     private lateinit var bind : FragmentRegisterBinding
     private lateinit var auth: FirebaseAuth
-
+    private lateinit var dataBase : FirebaseFirestore
+    private lateinit var nuevoUsuario: Usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +38,9 @@ class Register : Fragment() {
         super.onActivityCreated(savedInstanceState)
         bind = FragmentRegisterBinding.inflate(layoutInflater)
         // Inicializa objetos:
-
+        nuevoUsuario = Usuario("","","",0, listOf<ProductoDeseado>(), listOf<Incrementos>())
         auth = Firebase.auth
+        dataBase = Firebase.firestore
         crearCuenta.setOnClickListener { crearUsuario() }
 
     }
@@ -45,6 +50,19 @@ class Register : Fragment() {
     }
 
     private fun usuarioCreado(){
+        nuevoUsuario.nombre =  nombreUsuario.text.toString()
+        nuevoUsuario.correo = correo.text.toString()
+        nuevoUsuario.contrasena = contrasena.text.toString()
+
+
+        dataBase.collection("users")
+                .add(nuevoUsuario)
+                .addOnSuccessListener { documentReference ->
+                    Log.d("", "DocumentSnapshot added with ID: ${documentReference.id}")
+                }
+                .addOnFailureListener { e ->
+                    Log.w("", "Error adding document", e)
+                }
         val builder = AlertDialog.Builder(this.requireContext())
         with(builder){
             Toast.makeText(this.context,"Usuario creado con éxito", Toast.LENGTH_LONG).show()
