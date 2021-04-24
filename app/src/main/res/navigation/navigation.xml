@@ -95,5 +95,38 @@
         android:id="@+id/settingsFragment"
         android:name="edu.itesm.piggybank.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_ajustesFragment"
+            app:destination="@id/ajustesFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_privacidadFragment"
+            app:destination="@id/privacidadFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_terminosFragment"
+            app:destination="@id/terminosFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_nosotrosFragment"
+            app:destination="@id/nosotrosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ajustesFragment"
+        android:name="edu.itesm.piggybank.AjustesFragment"
+        android:label="fragment_ajustes"
+        tools:layout="@layout/fragment_ajustes" />
+    <fragment
+        android:id="@+id/privacidadFragment"
+        android:name="edu.itesm.piggybank.PrivacidadFragment"
+        android:label="fragment_privacidad"
+        tools:layout="@layout/fragment_privacidad" />
+    <fragment
+        android:id="@+id/terminosFragment"
+        android:name="edu.itesm.piggybank.TerminosFragment"
+        android:label="fragment_terminos"
+        tools:layout="@layout/fragment_terminos" />
+    <fragment
+        android:id="@+id/nosotrosFragment"
+        android:name="edu.itesm.piggybank.NosotrosFragment"
+        android:label="fragment_nosotros"
+        tools:layout="@layout/fragment_nosotros" />
 </navigation>
