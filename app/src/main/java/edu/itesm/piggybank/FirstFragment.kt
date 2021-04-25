@@ -66,7 +66,7 @@ class FirstFragment : Fragment() {
                             clave = document.data.get("correo").toString()
                             nombre_text.text = document.get("nombre") as CharSequence?
                             correo_text.text = document.get("correo") as CharSequence?
-                            //dinero_text.text = document.get("cochinito") as CharSequence?
+                            dinero_text.text = document.get("cochinito").toString()
                             //meta_text.text = document.get("productosDeseado") as CharSequence?
                         }
                     }
