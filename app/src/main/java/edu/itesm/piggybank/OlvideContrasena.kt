@@ -46,14 +46,15 @@ class OlvideContrasena : Fragment() {
                 for (document in documents) {
                     if(document.data.get("correo").toString() == recuperarContrasena.text.toString()){
                         Log.d(TAG, "existe")
-                        clave = document.data.get("correo").toString()
+                        clave = document.data.get("contrasena").toString()
+                        Toast.makeText(this.context,clave, Toast.LENGTH_LONG).show()
                     }
                 }
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
-        Toast.makeText(this.context,clave, Toast.LENGTH_LONG).show()
+
 
     }
 
