@@ -15,7 +15,7 @@
             android:id="@+id/imageView5"
             android:layout_width="313dp"
             android:layout_height="100dp"
-            android:layout_marginTop="112dp"
+            android:layout_marginTop="128dp"
             android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
