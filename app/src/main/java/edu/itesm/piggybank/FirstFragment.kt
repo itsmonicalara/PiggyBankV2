@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
@@ -63,6 +64,10 @@ class FirstFragment : Fragment() {
                         if(document.data.get("correo").toString() == args.correo){
                             Log.d(ContentValues.TAG, "existe")
                             clave = document.data.get("correo").toString()
+                            nombre_text.text = document.get("nombre") as CharSequence?
+                            correo_text.text = document.get("correo") as CharSequence?
+                            //dinero_text.text = document.get("cochinito") as CharSequence?
+                            //meta_text.text = document.get("productosDeseado") as CharSequence?
                         }
                     }
                 }

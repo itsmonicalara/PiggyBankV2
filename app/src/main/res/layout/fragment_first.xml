@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="313dp"
-            android:layout_height="100dp"
+            android:layout_width="312dp"
+            android:layout_height="169dp"
             android:layout_marginTop="128dp"
             android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,6 @@
             android:layout_marginStart="160dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins"
-            android:text="Aldo Ortiz"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/imageView5"
             app:layout_constraintTop_toTopOf="@+id/imageView5" />
@@ -83,10 +82,10 @@
             android:id="@+id/aldo_image"
             android:layout_width="83dp"
             android:layout_height="78dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="40dp"
             android:src="@drawable/boy1_"
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
-            app:layout_constraintHorizontal_bias="0.047"
+            app:layout_constraintHorizontal_bias="0.078"
             app:layout_constraintStart_toStartOf="@+id/imageView5"
             app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
@@ -105,15 +104,65 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textView20"
+            android:id="@+id/dinero_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="92dp"
+            android:fontFamily="@font/poppins"
             android:text="$450"
             app:layout_constraintBottom_toBottomOf="@+id/imageView5"
             app:layout_constraintEnd_toEndOf="@+id/imageView5"
-            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintHorizontal_bias="0.585"
             app:layout_constraintStart_toEndOf="@+id/ahorros_text" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="52dp"
+            android:fontFamily="@font/poppins"
+            android:text="Correo: "
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="0.184"
+            app:layout_constraintStart_toEndOf="@+id/aldo_image" />
+
+        <TextView
+            android:id="@+id/correo_text"
+            android:layout_width="98dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="56dp"
+            android:fontFamily="@font/poppins"
+            android:textAlignment="textStart"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="0.692"
+            app:layout_constraintStart_toEndOf="@+id/textView20" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Meta: "
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="0.164"
+            app:layout_constraintStart_toEndOf="@+id/aldo_image" />
+
+        <TextView
+            android:id="@+id/meta_text"
+            android:layout_width="111dp"
+            android:layout_height="21dp"
+            android:layout_marginBottom="20dp"
+            android:text="Bicicleta"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintHorizontal_bias="0.58"
+            app:layout_constraintStart_toEndOf="@+id/textView22" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
