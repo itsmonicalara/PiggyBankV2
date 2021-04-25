@@ -28,6 +28,7 @@ class Register : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var dataBase : FirebaseFirestore
     private lateinit var nuevoUsuario: Usuario
+    lateinit var correoMandar : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +67,8 @@ class Register : Fragment() {
         val builder = AlertDialog.Builder(this.requireContext())
         with(builder){
             Toast.makeText(this.context,"Usuario creado con éxito", Toast.LENGTH_LONG).show()
-            view?.findNavController()?.navigate(R.id.firstFragment)
+            val action = LoginDirections.loginToFirst(correoMandar)
+            view?.findNavController()?.navigate(action)
         }
     }
 

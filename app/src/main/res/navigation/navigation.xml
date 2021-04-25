@@ -41,8 +41,8 @@
             android:id="@+id/action_firstFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
         <argument
-            android:name="usuario"
-            app:argType="edu.itesm.piggybank.Usuario" />
+            android:name="correo"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/perfilesFragment"

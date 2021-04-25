@@ -18,6 +18,7 @@ class Login : Fragment() {
 
     private lateinit var bind : FragmentLoginBinding
     private lateinit var auth: FirebaseAuth
+    lateinit var correoMandar : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,14 +41,15 @@ class Login : Fragment() {
 
     fun iniciarSesion(){
         if(correoInicio.text.isNotEmpty() && contraInicio.text.isNotEmpty() ){
+            correoMandar = correoInicio.text.toString()
             FirebaseAuth.getInstance().signInWithEmailAndPassword(
                 correoInicio.text.toString(),
                 contraInicio.text.toString()
             ).addOnCompleteListener{
                 if(it.isSuccessful){
                     Toast.makeText(this.context,"Bienvenido", Toast.LENGTH_LONG).show()
-
-                    view?.findNavController()?.navigate(R.id.loginToFirst)
+                    val action = LoginDirections.loginToFirst(correoMandar)
+                    view?.findNavController()?.navigate(action)
                 }else{
                     Toast.makeText(this.context,"Usuario o contraseña son incorrectos", Toast.LENGTH_LONG).show()
                 }
