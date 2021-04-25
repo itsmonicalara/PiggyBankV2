@@ -1,7 +1,7 @@
-Pantallas funcionales:
-  piggyfragment (inicial)
-  register
-  login
-  olvideContraseña
-  FirstFragment
-  SettingFragment
+# Pantallas funcionales:
+  * piggyfragment (inicial)
+  * register
+  * login
+  * olvideContraseña
+  * FirstFragment (home)
+  * SettingFragment
