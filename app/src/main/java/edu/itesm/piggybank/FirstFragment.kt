@@ -5,16 +5,19 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_first.*
+import androidx.appcompat.widget.Toolbar;
 import kotlinx.android.synthetic.main.fragment_olvide_contrasena.*
 import kotlinx.android.synthetic.main.fragment_piggy.*
 import kotlinx.android.synthetic.main.fragment_piggy.iniciar_boton
@@ -34,11 +37,26 @@ class FirstFragment : Fragment() {
     private val args by navArgs<FirstFragmentArgs>()
     private lateinit var dataBase : FirebaseFirestore
     private var clave = ""
+    lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //toggle = ActionBarDrawerToggle(this.activity,drawerLayout,R.string.open, R.string.close)
+        //drawerLayout.addDrawerListener(toggle)
+        //toggle.syncState()
+        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+
         dataBase = Firebase.firestore
         getDataUser()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(toggle.onOptionsItemSelected(item)){
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -49,6 +67,14 @@ class FirstFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        //MENU
+        navView.setNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.nuevoProducto ->Toast.makeText(this.context,"nuevoProducto",Toast.LENGTH_SHORT).show()
+            }
+            true
+        }
         perfiles_boton.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_firstFragment_to_perfilesFragment)
         }
@@ -64,10 +90,9 @@ class FirstFragment : Fragment() {
                         if(document.data.get("correo").toString() == args.correo){
                             Log.d(ContentValues.TAG, "existe")
                             clave = document.data.get("correo").toString()
-                            nombre_text.text = document.get("nombre") as CharSequence?
+                            nombrePerfilInicio.text = document.get("nombre") as CharSequence?
                             correo_text.text = document.get("correo") as CharSequence?
-                            dinero_text.text = document.get("cochinito").toString()
-                            //meta_text.text = document.get("productosDeseado") as CharSequence?
+                            dinero_text.text = "$"+document.get("cochinito").toString()
                         }
                     }
                 }
@@ -77,5 +102,7 @@ class FirstFragment : Fragment() {
         Toast.makeText(this.context,clave, Toast.LENGTH_LONG).show()
 
     }
+
+
 
 }
