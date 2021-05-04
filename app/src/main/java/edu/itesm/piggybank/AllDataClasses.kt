@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @Parcelize
-data class Usuario(var nombre: String, var correo:String, var contrasena:String, var cochinito: Int, var productosDeseado: List<ProductoDeseado>, var incrementos: List<Incrementos>) : Parcelable
+data class Usuario(var nombre: String, var correo:String, var cochinito: Int, var productosDeseado: List<ProductoDeseado>, var incrementos: List<Incrementos>) : Parcelable
 
 @Parcelize
 data class ProductoDeseado(var producto: Producto, var cantidadAhorrada:Int, var fechaObtener: Date) : Parcelable

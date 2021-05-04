@@ -19,6 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import edu.itesm.piggybank.databinding.FragmentRegisterBinding
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_register.*
 
 
@@ -39,7 +40,7 @@ class Register : Fragment() {
         super.onActivityCreated(savedInstanceState)
         bind = FragmentRegisterBinding.inflate(layoutInflater)
         // Inicializa objetos:
-        nuevoUsuario = Usuario("","","",0, listOf<ProductoDeseado>(), listOf<Incrementos>())
+        nuevoUsuario = Usuario("","",0, listOf<ProductoDeseado>(), listOf<Incrementos>())
         auth = Firebase.auth
         dataBase = Firebase.firestore
         crearCuenta.setOnClickListener { crearUsuario() }
@@ -53,8 +54,7 @@ class Register : Fragment() {
     private fun usuarioCreado(){
         nuevoUsuario.nombre =  nombreUsuario.text.toString()
         nuevoUsuario.correo = correo.text.toString()
-        nuevoUsuario.contrasena = contrasena.text.toString()
-
+        correoMandar = correo.text.toString()
 
         dataBase.collection("users")
                 .add(nuevoUsuario)
@@ -67,7 +67,7 @@ class Register : Fragment() {
         val builder = AlertDialog.Builder(this.requireContext())
         with(builder){
             Toast.makeText(this.context,"Usuario creado con éxito", Toast.LENGTH_LONG).show()
-            val action = LoginDirections.loginToFirst(correoMandar)
+            val action = RegisterDirections.registerToLogin(correoMandar)
             view?.findNavController()?.navigate(action)
         }
     }
@@ -82,6 +82,7 @@ class Register : Fragment() {
             ).addOnCompleteListener{
                 if(it.isSuccessful){
                     usuarioCreado()
+                    iniciarSesion()
                     correo.text.clear()
                     contrasena.text.clear()
                 }
@@ -90,6 +91,16 @@ class Register : Fragment() {
             }
         }else{Toast.makeText(this.context,"No dejes campos vacios", Toast.LENGTH_LONG).show()}
         }else{Toast.makeText(this.context,"Contraseñas no coinciden", Toast.LENGTH_LONG).show() }
+    }
+
+    fun iniciarSesion(){
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                    correo.text.toString(),
+                    contrasena.text.toString()
+            ).addOnCompleteListener{
+            }
+
+
     }
 
     override fun onCreateView(
