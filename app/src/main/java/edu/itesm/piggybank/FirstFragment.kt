@@ -72,6 +72,9 @@ class FirstFragment : Fragment() {
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.nuevoProducto ->Toast.makeText(this.context,"nuevoProducto",Toast.LENGTH_SHORT).show()
+                R.id.anadirDinero -> Toast.makeText(this.context,"anadirDinero",Toast.LENGTH_SHORT).show()
+                R.id.metas -> Toast.makeText(this.context,"metas",Toast.LENGTH_SHORT).show()
+                R.id.ajustes -> Toast.makeText(this.context,"ajustes",Toast.LENGTH_SHORT).show()
             }
             true
         }
