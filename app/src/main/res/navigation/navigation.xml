@@ -43,6 +43,15 @@
         <argument
             android:name="correo"
             app:argType="string" />
+        <action
+            android:id="@+id/action_main_editarPerfil"
+            app:destination="@id/editarPerfilFragment" />
+        <action
+            android:id="@+id/main_anadirProducto"
+            app:destination="@id/anadirProducto" />
+        <action
+            android:id="@+id/action_main_login"
+            app:destination="@id/piggyFragment" />
     </fragment>
     <fragment
         android:id="@+id/perfilesFragment"
@@ -132,4 +141,14 @@
         android:name="edu.itesm.piggybank.NosotrosFragment"
         android:label="fragment_nosotros"
         tools:layout="@layout/fragment_nosotros" />
+    <fragment
+        android:id="@+id/anadirProducto"
+        android:name="edu.itesm.piggybank.AnadirProducto"
+        android:label="fragment_anadir_producto"
+        tools:layout="@layout/fragment_anadir_producto" />
+    <fragment
+        android:id="@+id/editarPerfilFragment"
+        android:name="edu.itesm.piggybank.EditarPerfilFragment"
+        android:label="fragment_editar_perfil"
+        tools:layout="@layout/fragment_editar_perfil" />
 </navigation>

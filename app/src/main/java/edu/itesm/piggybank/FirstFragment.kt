@@ -74,10 +74,12 @@ class FirstFragment : Fragment() {
         //MENU
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.nuevoProducto ->Toast.makeText(this.context,"nuevoProducto",Toast.LENGTH_SHORT).show()
+                R.id.perfil -> view?.findNavController()?.navigate(R.id.action_main_editarPerfil)
+                R.id.nuevoProducto ->view?.findNavController()?.navigate(R.id.main_anadirProducto)
                 R.id.anadirDinero -> Toast.makeText(this.context,"anadirDinero",Toast.LENGTH_SHORT).show()
                 R.id.metas -> Toast.makeText(this.context,"metas",Toast.LENGTH_SHORT).show()
                 R.id.ajustes -> Toast.makeText(this.context,"ajustes",Toast.LENGTH_SHORT).show()
+                R.id.cerrar ->  cerrarSesion()
             }
             true
         }
@@ -88,6 +90,12 @@ class FirstFragment : Fragment() {
             view?.findNavController()?.navigate(R.id.action_firstFragment_to_settingsFragment)
         }
     }
+
+    fun cerrarSesion(){
+        Firebase.auth.signOut()
+        view?.findNavController()?.navigate(R.id.action_main_login)
+    }
+
     fun getDataUser(){
         val user = Firebase.auth.currentUser
         user?.let {
