@@ -2,6 +2,7 @@ package edu.itesm.piggybank
 
 import android.content.ContentValues
 import android.os.Bundle
+import android.os.Debug
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_first.*
 import androidx.appcompat.widget.Toolbar;
+import com.google.firebase.auth.ktx.auth
 import kotlinx.android.synthetic.main.fragment_olvide_contrasena.*
 import kotlinx.android.synthetic.main.fragment_piggy.*
 import kotlinx.android.synthetic.main.fragment_piggy.iniciar_boton
@@ -62,6 +64,7 @@ class FirstFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
+        getDataUser()
         return inflater.inflate(R.layout.fragment_first, container, false)
     }
 
@@ -86,11 +89,15 @@ class FirstFragment : Fragment() {
         }
     }
     fun getDataUser(){
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val email = user.email
+        }
         val capitalCities = dataBase.collection("users")
         capitalCities.get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {
-                        if(document.data.get("correo").toString() == args.correo){
+                        if(document.data.get("correo").toString() == user.email.toString()){
                             Log.d(ContentValues.TAG, "existe")
                             clave = document.data.get("correo").toString()
                             nombrePerfilInicio.text = document.get("nombre") as CharSequence?
@@ -102,7 +109,6 @@ class FirstFragment : Fragment() {
                 .addOnFailureListener { exception ->
                     Log.w(ContentValues.TAG, "Error getting documents: ", exception)
                 }
-        Toast.makeText(this.context,clave, Toast.LENGTH_LONG).show()
 
     }
 
