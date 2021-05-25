@@ -4,4 +4,21 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string-array name="categoria">
+        <item>Muñecas</item>
+        <item>iPads</item>
+        <item>Guitarra</item>
+        <item>Balones</item>
+        <item>Legos</item>
+        <item>iPhone</item>
+        <item>Rompecabezas</item>
+        <item>Nerf</item>
+        <item>Videojuegos</item>
+        <item>Funko</item>
+        <item>Audifonos</item>
+        <item>Peluches</item>
+        <item>Juegos de mesa</item>
+        <item>Patineta</item>
+        <item>Patines</item>
+    </string-array>
 </resources>
