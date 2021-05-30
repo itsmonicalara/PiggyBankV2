@@ -150,5 +150,9 @@
         android:id="@+id/editarPerfilFragment"
         android:name="edu.itesm.piggybank.EditarPerfilFragment"
         android:label="fragment_editar_perfil"
-        tools:layout="@layout/fragment_editar_perfil" />
+        tools:layout="@layout/fragment_editar_perfil" >
+        <action
+            android:id="@+id/editarAPrimero"
+            app:destination="@id/firstFragment" />
+    </fragment>
 </navigation>

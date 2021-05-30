@@ -82,7 +82,7 @@ class EditarPerfilFragment : Fragment() {
         user?.let {
             val email = user.email
         }
-        if(foto != null){
+        if(foto != null && cambiarContrasena.text.toString() != null && nombreEditar.text.toString() != null ){
             val baos = ByteArrayOutputStream()
             foto.compress(Bitmap.CompressFormat.JPEG,100,baos)
             val data = baos.toByteArray()
@@ -98,10 +98,11 @@ class EditarPerfilFragment : Fragment() {
                         .addOnSuccessListener { documents ->
                             for (documentGot in documents) {
                                 if(documentGot.data.get("correo").toString() == user.email.toString()){
-                                    Toast.makeText(this.context,it.toString(), Toast.LENGTH_LONG).show()
                                     val data = hashMapOf("fotoPerfil" to it.toString(), "nombre" to nombreEditar.text.toString())
                                     dataBase.collection("users").document(documentGot.id.toString())
                                         .set(data, SetOptions.merge())
+                                    cambiarContrasena()
+                                    view?.findNavController()?.navigate(R.id.editarAPrimero)
                                 }
                             }
                         } .addOnFailureListener { exception ->
@@ -114,6 +115,16 @@ class EditarPerfilFragment : Fragment() {
         }
 
 
+    }
+
+    fun cambiarContrasena(){
+        val user = Firebase.auth.currentUser
+        var newPassword = cambiarContrasena.text.toString();
+        user.updatePassword(newPassword).addOnSuccessListener {
+            Toast.makeText(this.context,"Usuario actualizado", Toast.LENGTH_LONG).show()
+        }.addOnFailureListener{ exception ->
+            Log.w(ContentValues.TAG, "Error", exception)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
