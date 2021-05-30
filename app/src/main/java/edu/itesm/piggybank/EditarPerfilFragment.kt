@@ -1,10 +1,12 @@
 package edu.itesm.piggybank
 
 import android.app.Activity.RESULT_OK
+import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,10 +15,12 @@ import android.widget.Toast
 import androidx.navigation.findNavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_editar_perfil.*
+import kotlinx.android.synthetic.main.fragment_first.*
 import kotlinx.android.synthetic.main.fragment_login.*
 import java.io.ByteArrayOutputStream
 import java.util.*
@@ -27,13 +31,15 @@ class EditarPerfilFragment : Fragment() {
     private lateinit var dataBase : FirebaseFirestore
     private val RICapture = 1007
     private lateinit var foto: Bitmap
+    private var clave = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         dataBase = Firebase.firestore
         val reference = dataBase.collection("users")
-
+        getDataUser()
 
 
     }
@@ -49,19 +55,64 @@ class EditarPerfilFragment : Fragment() {
         startActivityForResult(tomaFoto,RICapture)
     }
 
-    fun nuevaConfiguracion(){
-        val baos = ByteArrayOutputStream()
-        foto.compress(Bitmap.CompressFormat.JPEG,100,baos)
-        val data = baos.toByteArray()
-        val fileName = UUID.randomUUID().toString()
-        val referenceStorage = FirebaseStorage.getInstance().getReference("/prueba/$fileName")
-        val upload = referenceStorage.putBytes(data)
-
-        upload.addOnSuccessListener {
-            referenceStorage.downloadUrl.addOnSuccessListener {
-                Toast.makeText(this.context,it.toString(), Toast.LENGTH_LONG).show()
-            }
+    fun getDataUser(){
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val email = user.email
         }
+        val capitalCities = dataBase.collection("users")
+        capitalCities.get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    if(document.data.get("correo").toString() == user.email.toString()){
+                        Log.d(ContentValues.TAG, "existe")
+                        clave = document.data.get("correo").toString()
+                        nombreEditar.setText(document.get("nombre") as CharSequence?)
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents: ", exception)
+            }
+
+    }
+
+    fun nuevaConfiguracion(){
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val email = user.email
+        }
+        if(foto != null){
+            val baos = ByteArrayOutputStream()
+            foto.compress(Bitmap.CompressFormat.JPEG,100,baos)
+            val data = baos.toByteArray()
+            val fileName = UUID.randomUUID().toString()
+            val referenceStorage = FirebaseStorage.getInstance().getReference("/fotosUsuarios/$fileName")
+            val upload = referenceStorage.putBytes(data)
+
+            upload.addOnSuccessListener {
+                referenceStorage.downloadUrl.addOnSuccessListener {
+                    Toast.makeText(this.context,it.toString(), Toast.LENGTH_LONG).show()
+                    val capitalCities = dataBase.collection("users")
+                    capitalCities.get()
+                        .addOnSuccessListener { documents ->
+                            for (documentGot in documents) {
+                                if(documentGot.data.get("correo").toString() == user.email.toString()){
+                                    Toast.makeText(this.context,it.toString(), Toast.LENGTH_LONG).show()
+                                    val data = hashMapOf("fotoPerfil" to it.toString())
+                                    dataBase.collection("users").document(documentGot.id.toString())
+                                        .set(data, SetOptions.merge())
+                                }
+                            }
+                        } .addOnFailureListener { exception ->
+                            Log.w(ContentValues.TAG, "Error getting documents: ", exception)
+                        }
+                }
+            }
+        }else{
+            Toast.makeText(this.context,"Tienes que seleccionar una foto para poder actualizar", Toast.LENGTH_LONG).show()
+        }
+
 
     }
 
