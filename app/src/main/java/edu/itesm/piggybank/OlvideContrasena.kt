@@ -45,9 +45,10 @@ class OlvideContrasena : Fragment() {
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     if(document.data.get("correo").toString() == recuperarContrasena.text.toString()){
-                        Log.d(TAG, "existe")
-                        clave = document.data.get("contrasena").toString()
-                        Toast.makeText(this.context,clave, Toast.LENGTH_LONG).show()
+                        auth.sendPasswordResetEmail(document.data.get("correo").toString()).addOnSuccessListener {
+                            Toast.makeText(this.context,"Revisar correo", Toast.LENGTH_LONG).show()
+                            view?.findNavController()?.navigate(R.id.olvidarALogin)
+                        }
                     }
                 }
             }
