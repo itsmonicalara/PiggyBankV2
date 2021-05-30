@@ -12,7 +12,7 @@
         android:background="#7289DA">
 
         <ImageView
-            android:id="@+id/fotoUsuario"
+            android:id="@+id/fotoUsuarioEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
@@ -41,7 +41,7 @@
             app:layout_constraintBottom_toTopOf="@+id/nombreEditar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fotoUsuario" />
+            app:layout_constraintTop_toBottomOf="@+id/fotoUsuarioEditar" />
 
         <EditText
             android:id="@+id/nombreEditar"
@@ -53,7 +53,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fotoUsuario" />
+            app:layout_constraintTop_toBottomOf="@+id/fotoUsuarioEditar" />
 
         <EditText
             android:id="@+id/cambiarContrasena"
@@ -65,7 +65,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fotoUsuario" />
+            app:layout_constraintTop_toBottomOf="@+id/fotoUsuarioEditar" />
 
         <TextView
             android:id="@+id/textView22"

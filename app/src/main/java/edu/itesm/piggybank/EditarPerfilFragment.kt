@@ -4,6 +4,7 @@ import android.app.Activity.RESULT_OK
 import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -20,8 +21,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_editar_perfil.*
-import kotlinx.android.synthetic.main.fragment_first.*
-import kotlinx.android.synthetic.main.fragment_login.*
 import java.io.ByteArrayOutputStream
 import java.util.*
 
@@ -46,7 +45,7 @@ class EditarPerfilFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        fotoUsuario.setOnClickListener {fotoUsuario()}
+        fotoUsuarioEditar.setOnClickListener {fotoUsuario()}
         guardarConfigNueva.setOnClickListener{nuevaConfiguracion()}
     }
 
@@ -68,6 +67,9 @@ class EditarPerfilFragment : Fragment() {
                         Log.d(ContentValues.TAG, "existe")
                         clave = document.data.get("correo").toString()
                         nombreEditar.setText(document.get("nombre") as CharSequence?)
+                        val fotoRegreso = document.get("fotoPerfil")
+
+
                     }
                 }
             }
