@@ -99,7 +99,7 @@ class EditarPerfilFragment : Fragment() {
                             for (documentGot in documents) {
                                 if(documentGot.data.get("correo").toString() == user.email.toString()){
                                     Toast.makeText(this.context,it.toString(), Toast.LENGTH_LONG).show()
-                                    val data = hashMapOf("fotoPerfil" to it.toString())
+                                    val data = hashMapOf("fotoPerfil" to it.toString(), "nombre" to nombreEditar.text.toString())
                                     dataBase.collection("users").document(documentGot.id.toString())
                                         .set(data, SetOptions.merge())
                                 }
