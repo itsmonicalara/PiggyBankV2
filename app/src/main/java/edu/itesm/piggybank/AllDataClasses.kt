@@ -10,7 +10,6 @@ data class Usuario(var nombre: String, var correo:String, var cochinito: Int, va
 @Parcelize
 data class ProductoDeseado(var producto: Producto, var cantidadAhorrada:Int, var fechaObtener: Date) : Parcelable
 
-
 @Parcelize
 data class Producto(var nombre: String, var descripcion:String, var precio: Int) : Parcelable
 

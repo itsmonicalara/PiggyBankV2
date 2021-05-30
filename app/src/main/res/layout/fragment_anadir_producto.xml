@@ -22,12 +22,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <EditText
             android:id="@+id/productName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="296dp"
+            android:layout_marginTop="316dp"
             android:ems="10"
             android:fontFamily="@font/poppins"
             android:hint="Ingresa nombre de producto"
@@ -36,11 +35,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <EditText
+            android:id="@+id/productPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="452dp"
+            android:ems="10"
+            android:fontFamily="@font/poppins"
+            android:hint="Ingresa precio de producto"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/agregarButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="48dp"
             android:text="Agregar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,9 +63,9 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_width="295dp"
             android:layout_height="59dp"
-            android:layout_marginTop="356dp"
+            android:layout_marginTop="380dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -94,35 +105,60 @@
             android:layout_width="32dp"
             android:layout_height="27dp"
             android:layout_marginTop="240dp"
-            android:layout_marginEnd="120dp"
+            android:layout_marginEnd="108dp"
             android:src="@drawable/new_info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/editTextNumberDecimal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="432dp"
-            android:ems="10"
+        <TextView
+            android:id="@+id/mLText"
+            android:layout_width="366dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="288dp"
             android:fontFamily="@font/poppins"
-            android:hint="Ingresa precio de producto"
-            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/mLText"
-            android:layout_width="323dp"
-            android:layout_height="58dp"
-            android:layout_marginBottom="96dp"
+        <EditText
+            android:id="@+id/dateMeta"
+            android:layout_width="296dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="520dp"
+            android:ems="10"
             android:fontFamily="@font/poppins"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:hint="Hasta que día quieres ahorrar?"
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--<com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/messageTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Text here" />
+        </com.google.android.material.textfield.TextInputLayout>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
