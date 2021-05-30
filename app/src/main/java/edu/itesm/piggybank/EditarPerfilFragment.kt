@@ -14,14 +14,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.mlkit.vision.common.InputImage
+import kotlinx.android.synthetic.main.fragment_anadir_producto.*
 import kotlinx.android.synthetic.main.fragment_editar_perfil.*
 import java.io.ByteArrayOutputStream
+import java.io.IOException
 import java.util.*
 
 
@@ -31,7 +35,7 @@ class EditarPerfilFragment : Fragment() {
     private val RICapture = 1007
     private lateinit var foto: Bitmap
     private var clave = ""
-
+    var image: InputImage? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +72,10 @@ class EditarPerfilFragment : Fragment() {
                         clave = document.data.get("correo").toString()
                         nombreEditar.setText(document.get("nombre") as CharSequence?)
                         val fotoRegreso = document.get("fotoPerfil")
+                        Glide.with(this)
+                            .load(fotoRegreso)
+                            .override(400,350)
+                            .into(fotoUsuarioEditar)
 
 
                     }
