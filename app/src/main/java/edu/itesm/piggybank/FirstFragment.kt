@@ -19,7 +19,9 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_first.*
 import androidx.appcompat.widget.Toolbar;
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
+import kotlinx.android.synthetic.main.fragment_editar_perfil.*
 import kotlinx.android.synthetic.main.fragment_olvide_contrasena.*
 import kotlinx.android.synthetic.main.fragment_piggy.*
 import kotlinx.android.synthetic.main.fragment_piggy.iniciar_boton
@@ -83,12 +85,7 @@ class FirstFragment : Fragment() {
             }
             true
         }
-        perfiles_boton.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_firstFragment_to_perfilesFragment)
-        }
-        config_boton.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_firstFragment_to_settingsFragment)
-        }
+
     }
 
     fun cerrarSesion(){
@@ -111,6 +108,10 @@ class FirstFragment : Fragment() {
                             nombrePerfilInicio.text = document.get("nombre") as CharSequence?
                             correo_text.text = document.get("correo") as CharSequence?
                             dinero_text.text = "$"+document.get("cochinito").toString()
+                            val fotoRegreso = document.get("fotoPerfil")
+                            Glide.with(this)
+                                .load(fotoRegreso)
+                                .into(aldo_image)
                         }
                     }
                 }

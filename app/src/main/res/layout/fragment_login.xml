@@ -10,7 +10,7 @@
         android:id="@+id/constrain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#0000">
+        android:background="#7289DA">
 
 
         <Button
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:backgroundTint="#7289DA"
+            android:backgroundTint="#000000"
             android:text="Iniciar sesión"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
