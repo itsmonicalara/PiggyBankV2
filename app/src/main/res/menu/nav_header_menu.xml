@@ -1,63 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <group
+        android:id="@+id/menu_top">
+        <item
+            android:id="@+id/perfil"
+            android:title="Perfil"
+            android:icon="@drawable/ic_baseline_person_24"/>
 
-    <item
-        android:id="@+id/perfil"
-        android:title="Perfil"/>
+        <item
+            android:id="@+id/nuevoProducto"
+            android:title="Añadir producto"
+            android:icon="@drawable/ic_baseline_add_24"/>
 
-    <item
-        android:id="@+id/nuevoProducto"
-        android:title="Añadir producto"/>
+        <item
+            android:id="@+id/calendario"
+            android:title="Calendario"
+            android:icon="@drawable/ic_baseline_calendar_today_24"/>
 
-    <item
-        android:id="@+id/calendario"
-        android:title="Calendario"/>
-
-    <item
-        android:id="@+id/anadirDinero"
-        android:title="Añadir Dinero"/>
-
-
-    <item
-        android:id="@+id/bancosCercanos"
-        android:title="BancosCercanos"/>
-
-
-    <item
-        android:id="@+id/metas"
-        android:title="Metas"/>
+        <item
+            android:id="@+id/anadirDinero"
+            android:title="Añadir Dinero"
+            android:icon="@drawable/ic_baseline_attach_money_24"/>
 
 
-
-    <item
-        android:id="@+id/ajustes"
-        android:title="Ajustes"/>
-
-    <item
-        android:id="@+id/ayuda"
-        android:title="Ayuda"/>
-
-    <item
-        android:id="@+id/privacidad"
-        android:title="Privacidad"/>
-
-    <item
-        android:id="@+id/contacto"
-        android:title="Contacto"/>
-
-    <item
-        android:id="@+id/terminos"
-        android:title="Terminos y condiciones"/>
+        <item
+            android:id="@+id/bancosCercanos"
+            android:title="Bancos Cercanos"
+            android:icon="@drawable/ic_baseline_account_balance_24"/>
 
 
-    <item
-        android:id="@+id/nosotros"
-        android:title="Acerca de Nosotros"/>
+        <item
+            android:id="@+id/metas"
+            android:title="Metas"
+            android:icon="@drawable/ic_baseline_post_add_24"/>
+    </group>
+    <group
+        android:id="@+id/menu_bottom">
+        <item
+            android:id="@+id/ajustes"
+            android:title="Ajustes"
+            android:icon="@drawable/ic_baseline_settings_24"/>
 
-    <item
-        android:id="@+id/cerrar"
-        android:title="Cerrar sesión"/>
+        <item
+            android:id="@+id/ayuda"
+            android:title="Ayuda"
+            android:icon="@drawable/ic_baseline_help_24"/>
 
+        <item
+            android:id="@+id/privacidad"
+            android:title="Privacidad"
+            android:icon="@drawable/ic_baseline_security_24"/>
+
+        <item
+            android:id="@+id/contacto"
+            android:title="Contacto"
+            android:icon="@drawable/ic_baseline_contact_support_24"/>
+
+        <item
+            android:id="@+id/terminos"
+            android:title="Terminos y condiciones"
+            android:icon="@drawable/ic_baseline_feedback_24"/>
+
+
+        <item
+            android:id="@+id/nosotros"
+            android:title="Acerca de Nosotros"
+            android:icon="@drawable/ic_baseline_info_24"/>
+
+        <item
+            android:id="@+id/cerrar"
+            android:title="Cerrar sesión"
+            android:icon="@drawable/ic_baseline_login_24"/>
+    </group>
 
 </menu>

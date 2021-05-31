@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView27"
+            android:id="@+id/titleProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="44dp"
@@ -19,32 +19,6 @@
             android:fontFamily="@font/poppins_light"
             android:text="Agrega un producto"
             android:textSize="26sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/productName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="316dp"
-            android:ems="10"
-            android:fontFamily="@font/poppins"
-            android:hint="Ingresa nombre de producto"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/productPrecio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="452dp"
-            android:ems="10"
-            android:fontFamily="@font/poppins"
-            android:hint="Ingresa precio de producto"
-            android:inputType="numberDecimal"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,21 +36,21 @@
             android:id="@+id/menu"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
             android:layout_width="295dp"
-            android:layout_height="59dp"
-            android:layout_marginTop="380dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/productTextInputLayout">
 
             <AutoCompleteTextView
                 android:id="@+id/autoCompleteTextView3"
                 android:layout_width="match_parent"
-                android:layout_height="51dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins"
                 android:hint="Escoge categoria"
                 android:inputType="none" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
@@ -128,37 +102,56 @@
             android:layout_width="296dp"
             android:layout_height="44dp"
             android:layout_marginTop="520dp"
+            android:clickable="true"
             android:ems="10"
+            android:focusable="false"
             android:fontFamily="@font/poppins"
             android:hint="Hasta que día quieres ahorrar?"
             android:inputType="date"
-            android:focusable="false"
-            android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.513"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--<com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/messageTextInputLayout"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/productTextInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="295dp"
+            android:layout_height="60dp"
             android:layout_margin="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="92dp"
-            android:layout_marginEnd="9dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/mLText">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordTextInputEditText"
+                android:id="@+id/productTextInputEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Text here" />
-        </com.google.android.material.textfield.TextInputLayout>-->
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins"
+                android:hint="Ingresa el nombre del producto" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/priceTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="295dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/priceTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins"
+                android:hint="Ingresa el precio del producto" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

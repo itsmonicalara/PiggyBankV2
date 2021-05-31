@@ -25,6 +25,7 @@ import kotlinx.android.synthetic.main.fragment_editar_perfil.*
 import kotlinx.android.synthetic.main.fragment_olvide_contrasena.*
 import kotlinx.android.synthetic.main.fragment_piggy.*
 import kotlinx.android.synthetic.main.fragment_piggy.iniciar_boton
+import kotlinx.android.synthetic.main.nav_header.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -106,12 +107,17 @@ class FirstFragment : Fragment() {
                             Log.d(ContentValues.TAG, "existe")
                             clave = document.data.get("correo").toString()
                             nombrePerfilInicio.text = document.get("nombre") as CharSequence?
+                            nombreMenu.text = document.get("nombre") as CharSequence?
                             correo_text.text = document.get("correo") as CharSequence?
+                            emailMenu.text = document.get("correo")  as CharSequence?
                             dinero_text.text = "$"+document.get("cochinito").toString()
                             val fotoRegreso = document.get("fotoPerfil")
                             Glide.with(this)
                                 .load(fotoRegreso)
                                 .into(aldo_image)
+                            Glide.with(this)
+                                .load(fotoRegreso)
+                                .into(roundedimage)
                         }
                     }
                 }
