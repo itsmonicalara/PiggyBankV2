@@ -102,7 +102,11 @@
         android:id="@+id/olvideContrasena3"
         android:name="edu.itesm.piggybank.OlvideContrasena"
         android:label="fragment_olvide_contrasena"
-        tools:layout="@layout/fragment_olvide_contrasena" />
+        tools:layout="@layout/fragment_olvide_contrasena" >
+        <action
+            android:id="@+id/olvidarALogin"
+            app:destination="@id/login" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="edu.itesm.piggybank.SettingsFragment"
@@ -150,5 +154,9 @@
         android:id="@+id/editarPerfilFragment"
         android:name="edu.itesm.piggybank.EditarPerfilFragment"
         android:label="fragment_editar_perfil"
-        tools:layout="@layout/fragment_editar_perfil" />
+        tools:layout="@layout/fragment_editar_perfil" >
+        <action
+            android:id="@+id/editarAPrimero"
+            app:destination="@id/firstFragment" />
+    </fragment>
 </navigation>
