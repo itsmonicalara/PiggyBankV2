@@ -82,6 +82,7 @@ class FirstFragment : Fragment() {
                 R.id.metas -> Toast.makeText(this.context,"metas",Toast.LENGTH_SHORT).show()
                 R.id.ajustes -> Toast.makeText(this.context,"ajustes",Toast.LENGTH_SHORT).show()
                 R.id.cerrar ->  cerrarSesion()
+                R.id.prueba -> view?.findNavController()?.navigate(R.id.first_to_nose)
             }
             true
         }

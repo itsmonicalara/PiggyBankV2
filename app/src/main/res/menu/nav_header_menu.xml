@@ -56,6 +56,10 @@
         android:title="Acerca de Nosotros"/>
 
     <item
+        android:id="@+id/prueba"
+        android:title="Prueba"/>
+
+    <item
         android:id="@+id/cerrar"
         android:title="Cerrar sesión"/>
 
