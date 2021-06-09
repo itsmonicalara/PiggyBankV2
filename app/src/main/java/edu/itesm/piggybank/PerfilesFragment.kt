@@ -40,10 +40,13 @@ class PerfilesFragment : Fragment() {
 
     fun createData(): ArrayList<Perfil>{
         val perfiles = ArrayList<Perfil>()
-        perfiles.add(Perfil(R.drawable.boy1_, "Billy Rodriguez", "10", "Me gustaría ahorrar para comprarme una bici."))
-        perfiles.add(Perfil(R.drawable.girl1_, "Ana Perez", "12", "Quiero un iPad y por eso ahorrare mis domingos."))
-        perfiles.add(Perfil(R.drawable.girl2_, "Paola Diaz", "11", "Todos mis ahorros van a ser para mi viaje a Disney."))
-        perfiles.add(Perfil(R.drawable.boy2_, "Tommy Sanchez", "8", "Solo quiero ahorrar."))
+        perfiles.add(Perfil(R.drawable.comida, "Comida"))
+        perfiles.add(Perfil(R.drawable.compras, "Compras"))
+        perfiles.add(Perfil(R.drawable.juguetes, "Juguetes"))
+        perfiles.add(Perfil(R.drawable.tecnologia, "Tecnologia"))
+        perfiles.add(Perfil(R.drawable.inversion, "Inversiones"))
+        perfiles.add(Perfil(R.drawable.domingo, "Domingo"))
+        perfiles.add(Perfil(R.drawable.cumpleanos, "Cumpleaños"))
         return perfiles
     }
 

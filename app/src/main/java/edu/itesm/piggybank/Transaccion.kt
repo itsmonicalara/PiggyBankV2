@@ -4,5 +4,5 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Perfil(val picture:Int,
-                  val tipo :String) : Parcelable
+data class Transaccion(val picture:Int,
+                  val tipo:String) : Parcelable

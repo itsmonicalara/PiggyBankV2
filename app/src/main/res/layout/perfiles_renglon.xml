@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/foto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="54dp"
+            android:layout_height="48dp"
             card_view:srcCompat="@mipmap/ic_launcher" />
 
         <LinearLayout
@@ -37,21 +37,8 @@
                 android:textColor="@color/purple_500"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/edad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="edad"
-                android:textColor="@color/black"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/descripcion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="descripcion" />
-
         </LinearLayout>
     </LinearLayout>
+
 
 </androidx.cardview.widget.CardView>

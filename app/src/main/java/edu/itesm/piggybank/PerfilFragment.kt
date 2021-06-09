@@ -35,9 +35,7 @@ class PerfilFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         foto.setImageResource(args.perfil.picture)
-        nombre.text =args.perfil.nombre
-        edad.text = args.perfil.edad
-        descripcion.text = args.perfil.historia
+        nombre.text =args.perfil.tipo
     }
 
 }

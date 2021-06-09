@@ -8,6 +8,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/perfiles_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="420dp"
         tools:listitem="@layout/perfiles_renglon" />
 </FrameLayout>

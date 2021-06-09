@@ -13,8 +13,6 @@ class PerfilesAdapter(private val perfiles : List<Perfil>)
 
     inner class PerfilViewHolder(renglon: View) : RecyclerView.ViewHolder(renglon){
         var nombre = renglon.findViewById<TextView>(R.id.nombre)
-        var edad = renglon.findViewById<TextView>(R.id.edad)
-        var historia = renglon.findViewById<TextView>(R.id.descripcion)
         var foto = renglon.findViewById<ImageView>(R.id.foto)
     }
 
@@ -27,9 +25,7 @@ class PerfilesAdapter(private val perfiles : List<Perfil>)
     override fun onBindViewHolder(holder: PerfilViewHolder, position: Int) {
         val perfil = perfiles[position]
         holder.foto.setImageResource(perfil.picture)
-        holder.nombre.text = perfil.nombre
-        holder.edad.text = perfil.edad
-        holder.historia.text = perfil.historia
+        holder.nombre.text = perfil.tipo
         holder.itemView.setOnClickListener(){
             val action = PerfilesFragmentDirections.actionPerfilesFragmentToPerfilFragment(perfil)
             holder.itemView?.findNavController()?.navigate(action)

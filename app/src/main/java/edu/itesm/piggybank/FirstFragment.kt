@@ -79,7 +79,7 @@ class FirstFragment : Fragment() {
             when(it.itemId){
                 R.id.perfil -> view?.findNavController()?.navigate(R.id.action_main_editarPerfil)
                 R.id.nuevoProducto ->view?.findNavController()?.navigate(R.id.main_anadirProducto)
-                R.id.anadirDinero -> Toast.makeText(this.context,"anadirDinero",Toast.LENGTH_SHORT).show()
+                R.id.anadirDinero -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_perfilesFragment)
                 R.id.metas -> Toast.makeText(this.context,"metas",Toast.LENGTH_SHORT).show()
                 R.id.ajustes -> Toast.makeText(this.context,"ajustes",Toast.LENGTH_SHORT).show()
                 R.id.cerrar ->  cerrarSesion()
