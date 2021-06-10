@@ -32,6 +32,7 @@ class PerfilesFragment : Fragment() {
     private var clave = ""
     private  var cochinito = 0.0
     private var incrementoBase = HashMap<Any,Any>()
+    private var decrementoBase = HashMap<Any,Any>()
     private val args by navArgs<PerfilesFragmentArgs>()
     private lateinit var operacion : String
 
@@ -94,8 +95,8 @@ class PerfilesFragment : Fragment() {
                         Log.d(ContentValues.TAG, "existe")
                         clave = document.data.get("correo").toString()
                         cochinito = document.data.get("cochinito").toString().toDouble()
-                        incrementoBase = document.data.get("incrementos") as HashMap<Any, Any>
-
+                        incrementoBase = document.data.get("incremento") as HashMap<Any, Any>
+                        decrementoBase = document.data.get("decremento") as HashMap<Any, Any>
 
                     }
                 }
@@ -119,20 +120,31 @@ class PerfilesFragment : Fragment() {
                         .addOnSuccessListener { documents ->
                             for (documentGot in documents) {
                                 if(documentGot.data.get("correo").toString() == user.email.toString()){
-                                    var nuevo = incrementoBase.put("programa", editTextNumber.text.toString().toDouble())
-                                    var data1 =hashMapOf("incremento" to (nuevo))
+                                    val rnds = (0..1000000).random()
                                     var data2: Any
+
                                     if(operacion == "mas"){
+                                        incrementoBase.put("inversion"+","+rnds.toString(), editTextNumber.text.toString().toDouble())
+                                        var data1 =hashMapOf("incremento" to incrementoBase)
                                         data2 =hashMapOf("cochinito" to (  editTextNumber.text.toString().toDouble() + cochinito))
+                                        dataBase.collection("users").document(documentGot.id.toString())
+                                            .set(data1, SetOptions.merge())
+                                        dataBase.collection("users").document(documentGot.id.toString())
+                                            .set(
+                                                data2,SetOptions.merge()
+                                            )
                                     }else{
+                                        var data3= hashMapOf("decremento" to decrementoBase)
+                                        decrementoBase.put("gasto"+","+rnds.toString(), editTextNumber.text.toString().toDouble())
                                         data2 =hashMapOf("cochinito" to (  cochinito - editTextNumber.text.toString().toDouble()  ))
+                                        dataBase.collection("users").document(documentGot.id.toString())
+                                            .set(data3, SetOptions.merge())
+                                        dataBase.collection("users").document(documentGot.id.toString())
+                                            .set(
+                                                data2,SetOptions.merge()
+                                            )
                                     }
-                                    dataBase.collection("users").document(documentGot.id.toString())
-                                        .set(data1, SetOptions.merge())
-                                    dataBase.collection("users").document(documentGot.id.toString())
-                                        .set(
-                                            data2,SetOptions.merge()
-                                        )
+
                                 }
                             }
                             view?.findNavController()?.navigate(R.id.perfilesToFirst)

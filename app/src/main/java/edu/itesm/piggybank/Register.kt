@@ -35,7 +35,7 @@ class Register : Fragment() {
         super.onActivityCreated(savedInstanceState)
         bind = FragmentRegisterBinding.inflate(layoutInflater)
         // Inicializa objetos:
-        nuevoUsuario = Usuario("","",0, listOf<ProductoDeseado>(), listOf<Incrementos>())
+        nuevoUsuario = Usuario("","",0, listOf<ProductoDeseado>())
         auth = Firebase.auth
         dataBase = Firebase.firestore
         crearCuenta.setOnClickListener { crearUsuario() }
