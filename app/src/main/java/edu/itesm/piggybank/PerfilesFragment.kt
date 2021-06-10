@@ -24,12 +24,14 @@ import kotlinx.android.synthetic.main.fragment_perfiles.*
 import java.io.ByteArrayOutputStream
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class PerfilesFragment : Fragment() {
     private lateinit var dataBase : FirebaseFirestore
     private var clave = ""
     private  var cochinito = 0.0
+    private var incrementoBase = HashMap<Any,Any>()
     private val args by navArgs<PerfilesFragmentArgs>()
     private lateinit var operacion : String
 
@@ -63,6 +65,7 @@ class PerfilesFragment : Fragment() {
         }
         actualizarSaldo.setOnClickListener{
             nuevaConfiguracion()
+            //view?.findNavController()?.navigate(R.id.perfilesToFirst)
         }
     }
 
@@ -91,6 +94,7 @@ class PerfilesFragment : Fragment() {
                         Log.d(ContentValues.TAG, "existe")
                         clave = document.data.get("correo").toString()
                         cochinito = document.data.get("cochinito").toString().toDouble()
+                        incrementoBase = document.data.get("incrementos") as HashMap<Any, Any>
 
 
                     }
@@ -115,33 +119,28 @@ class PerfilesFragment : Fragment() {
                         .addOnSuccessListener { documents ->
                             for (documentGot in documents) {
                                 if(documentGot.data.get("correo").toString() == user.email.toString()){
-                                    val data = hashMapOf("incrementos" to editTextNumber.text.toString())
-                                    Log.e("base",cochinito.toString())
-                                    Log.e("local",editTextNumber.text.toString())
+                                    var nuevo = incrementoBase.put("programa", editTextNumber.text.toString().toDouble())
+                                    var data1 =hashMapOf("incremento" to (nuevo))
                                     var data2: Any
                                     if(operacion == "mas"){
                                         data2 =hashMapOf("cochinito" to (  editTextNumber.text.toString().toDouble() + cochinito))
                                     }else{
                                         data2 =hashMapOf("cochinito" to (  cochinito - editTextNumber.text.toString().toDouble()  ))
                                     }
-
                                     dataBase.collection("users").document(documentGot.id.toString())
-                                        .set(
-                                            data,SetOptions.merge()
-                                        )
+                                        .set(data1, SetOptions.merge())
                                     dataBase.collection("users").document(documentGot.id.toString())
                                         .set(
                                             data2,SetOptions.merge()
                                         )
                                 }
                             }
+                            view?.findNavController()?.navigate(R.id.perfilesToFirst)
                         } .addOnFailureListener { exception ->
                             Log.w(ContentValues.TAG, "Error getting documents: ", exception)
                         }
 
 
-        }else{
-            Toast.makeText(this.context,"Tienes que seleccionar una foto para poder actualizar", Toast.LENGTH_LONG).show()
         }
 
 

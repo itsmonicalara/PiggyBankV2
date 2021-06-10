@@ -72,10 +72,13 @@ class EditarPerfilFragment : Fragment() {
                         clave = document.data.get("correo").toString()
                         nombreEditar.setText(document.get("nombre") as CharSequence?)
                         val fotoRegreso = document.get("fotoPerfil")
-                        Glide.with(this)
-                            .load(fotoRegreso)
-                            .override(400,350)
-                            .into(fotoUsuarioEditar)
+                        if (fotoRegreso != null){
+                            Glide.with(this)
+                                .load(fotoRegreso)
+                                .override(400,350)
+                                .into(fotoUsuarioEditar)
+                        }
+
 
 
                     }
