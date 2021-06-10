@@ -9,10 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class PerfilesAdapter(private val perfiles : List<Perfil>)
+class PerfilesAdapter(private val perfiles : List<Perfil>,  var tipoGasto: PerfilesFragment)
     : RecyclerView.Adapter<PerfilesAdapter.PerfilViewHolder>(){
 
-    lateinit var tipoGasto: String
+
     var cantidad = 0
 
     inner class PerfilViewHolder(renglon: View) : RecyclerView.ViewHolder(renglon){
@@ -36,8 +36,8 @@ class PerfilesAdapter(private val perfiles : List<Perfil>)
         holder.foto.setImageResource(perfil.picture)
         holder.nombre.text = perfil.tipo
         holder.itemView.setOnClickListener(){
-            tipoGasto = perfil.tipo
-            Log.e("error",tipoGasto)
+            tipoGasto.tipoGasto = perfil.tipo
+            Log.e("",tipoGasto.tipoGasto)
         }
     }
 
