@@ -22,6 +22,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
 import kotlinx.android.synthetic.main.fragment_editar_perfil.*
+import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_olvide_contrasena.*
 import kotlinx.android.synthetic.main.fragment_piggy.*
 import kotlinx.android.synthetic.main.fragment_piggy.iniciar_boton
@@ -43,6 +44,8 @@ class FirstFragment : Fragment() {
     private lateinit var dataBase : FirebaseFirestore
     private var clave = ""
     lateinit var toggle: ActionBarDrawerToggle
+    val actionMas = FirstFragmentDirections.actionFirstFragmentToPerfilesFragment("mas")
+    val actionMenos = FirstFragmentDirections.actionFirstFragmentToPerfilesFragment("menos")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +59,8 @@ class FirstFragment : Fragment() {
         dataBase = Firebase.firestore
         getDataUser()
     }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(toggle.onOptionsItemSelected(item)){
@@ -74,12 +79,20 @@ class FirstFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        agregarCochinito.setOnClickListener{
+            view?.findNavController()?.navigate(actionMas)
+        }
+        restarCochinito.setOnClickListener {
+            view?.findNavController()?.navigate(actionMenos)
+        }
+
+
         //MENU
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.perfil -> view?.findNavController()?.navigate(R.id.action_main_editarPerfil)
                 R.id.nuevoProducto ->view?.findNavController()?.navigate(R.id.main_anadirProducto)
-                R.id.anadirDinero -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_perfilesFragment)
+                R.id.anadirDinero -> view?.findNavController()?.navigate(actionMas)
                 R.id.metas -> Toast.makeText(this.context,"metas",Toast.LENGTH_SHORT).show()
                 R.id.ajustes -> Toast.makeText(this.context,"ajustes",Toast.LENGTH_SHORT).show()
                 R.id.cerrar ->  cerrarSesion()

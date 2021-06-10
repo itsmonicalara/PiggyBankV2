@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
@@ -24,12 +25,19 @@ import java.io.ByteArrayOutputStream
 import java.util.*
 import kotlin.collections.ArrayList
 
+
 class PerfilesFragment : Fragment() {
     private lateinit var dataBase : FirebaseFirestore
     private var clave = ""
     private  var cochinito = 0.0
+    private val args by navArgs<PerfilesFragmentArgs>()
+    private lateinit var operacion : String
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        operacion = args.operacion
+        Log.e("",operacion)
         dataBase = Firebase.firestore
         val reference = dataBase.collection("users")
         getDataUser()
@@ -44,6 +52,11 @@ class PerfilesFragment : Fragment() {
 
     override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
         super.onViewCreated(itemView, savedInstanceState)
+        if (operacion == "mas"){
+            signoDinero.text = "+"
+        }else{
+            signoDinero.text = "-"
+        }
         perfiles_recycler.apply{
             layoutManager = LinearLayoutManager(activity)
             adapter = PerfilesAdapter(createData())
@@ -105,7 +118,13 @@ class PerfilesFragment : Fragment() {
                                     val data = hashMapOf("incrementos" to editTextNumber.text.toString())
                                     Log.e("base",cochinito.toString())
                                     Log.e("local",editTextNumber.text.toString())
-                                    var data2 =hashMapOf("cochinito" to (  editTextNumber.text.toString().toDouble() + cochinito))
+                                    var data2: Any
+                                    if(operacion == "mas"){
+                                        data2 =hashMapOf("cochinito" to (  editTextNumber.text.toString().toDouble() + cochinito))
+                                    }else{
+                                        data2 =hashMapOf("cochinito" to (  cochinito - editTextNumber.text.toString().toDouble()  ))
+                                    }
+
                                     dataBase.collection("users").document(documentGot.id.toString())
                                         .set(
                                             data,SetOptions.merge()

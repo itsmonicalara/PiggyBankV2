@@ -20,7 +20,7 @@
         tools:listitem="@layout/perfiles_renglon" />
 
     <TextView
-        android:id="@+id/minusMoney"
+        android:id="@+id/signoDinero"
         android:layout_width="28dp"
         android:layout_height="80dp"
         android:layout_marginTop="6dp"
