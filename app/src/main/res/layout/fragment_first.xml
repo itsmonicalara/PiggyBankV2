@@ -20,6 +20,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
                 android:text="Cochinito: "
+                android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +46,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
                 android:text="0"
+                android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,13 +62,14 @@
                 android:layout_marginStart="68dp"
                 android:fontFamily="@font/poppins"
                 android:text="Correo: "
+                android:textColor="#FFFFFF"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/correo_text"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.13"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.353" />
+                app:layout_constraintVertical_bias="0.291" />
 
             <TextView
                 android:id="@+id/correo_text"
@@ -74,31 +77,35 @@
                 android:layout_height="23dp"
                 android:fontFamily="@font/poppins"
                 android:textAlignment="textStart"
+                android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.738"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.351" />
+                app:layout_constraintVertical_bias="0.291" />
 
             <TextView
                 android:id="@+id/nombrePerfilInicio"
                 android:layout_width="201dp"
                 android:layout_height="50dp"
-                android:text="Nombre"
+                android:fontFamily="@font/poppins"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
                 android:textSize="34sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.538"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.226" />
+                app:layout_constraintVertical_bias="0.182" />
 
             <TextView
                 android:id="@+id/textView24"
-                android:layout_width="276dp"
-                android:layout_height="57dp"
+                android:layout_width="314dp"
+                android:layout_height="60dp"
+                android:fontFamily="@font/poppins"
                 android:text="Bienvenid@ a tu Piggy bank!!!"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

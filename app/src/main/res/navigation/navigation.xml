@@ -51,6 +51,21 @@
         <action
             android:id="@+id/firstToHistory"
             app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_ajustesFragment"
+            app:destination="@id/ajustesFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_privacidadFragment"
+            app:destination="@id/privacidadFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_terminosFragment"
+            app:destination="@id/terminosFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_nosotrosFragment"
+            app:destination="@id/nosotrosFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_metasFragment"
+            app:destination="@id/metasFragment" />
     </fragment>
     <fragment
         android:id="@+id/perfilesFragment"
@@ -172,4 +187,9 @@
         android:name="edu.itesm.piggybank.MVVM.view.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/metasFragment"
+        android:name="edu.itesm.piggybank.MetasFragment"
+        android:label="fragment_metas"
+        tools:layout="@layout/fragment_metas" />
 </navigation>

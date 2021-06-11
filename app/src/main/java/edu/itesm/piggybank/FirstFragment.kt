@@ -93,10 +93,23 @@ class FirstFragment : Fragment() {
                 R.id.perfil -> view?.findNavController()?.navigate(R.id.action_main_editarPerfil)
                 R.id.nuevoProducto ->view?.findNavController()?.navigate(R.id.main_anadirProducto)
                 R.id.anadirDinero -> view?.findNavController()?.navigate(actionMas)
-                R.id.metas -> Toast.makeText(this.context,"metas",Toast.LENGTH_SHORT).show()
-                R.id.ajustes -> Toast.makeText(this.context,"ajustes",Toast.LENGTH_SHORT).show()
-                R.id.cerrar ->  cerrarSesion()
+                R.id.metas -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_metasFragment)
                 R.id.historial -> view?.findNavController()?.navigate(R.id.firstToHistory)
+
+                R.id.ajustes -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_settingsFragment)
+                R.id.ayuda -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_ajustesFragment)
+                R.id.privacidad -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_privacidadFragment)
+                R.id.terminos -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_terminosFragment)
+                R.id.nosotros -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_nosotrosFragment)
+
+
+
+
+
+
+
+                R.id.cerrar ->  cerrarSesion()
+
             }
             true
         }

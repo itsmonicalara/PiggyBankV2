@@ -97,7 +97,6 @@ class AnadirProducto : DialogFragment(), DatePickerDialog.OnDateSetListener {
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents: ", exception)
             }
-
     }
 
     fun nuevaConfiguracion(){
@@ -105,24 +104,27 @@ class AnadirProducto : DialogFragment(), DatePickerDialog.OnDateSetListener {
         user?.let {
             val email = user.email
         }
-        val capitalCities = dataBase.collection("users")
-        capitalCities.get()
-            .addOnSuccessListener { documents ->
-                for (documentGot in documents) {
-                    if(documentGot.data.get("correo").toString() == user.email.toString()){
-                        var testText = productTextInputEditText.getText()
-                        Log.d("Nombre: " , testText.toString())
-                        var testText3 = priceTextInputEditText.getText()
-                        Log.d("Precio: " , testText3.toString())
-                        listaProductos.put(productTextInputEditText.text.toString(), priceTextInputEditText.text.toString().toDouble())
-                        var data1 =hashMapOf("productosDeseado" to listaProductos)
-                        dataBase.collection("users").document(documentGot.id.toString())
-                            .set(data1, SetOptions.merge())
+        if(productTextInputEditText != null && priceTextInputEditText != null){
+            val capitalCities = dataBase.collection("users")
+            capitalCities.get()
+                .addOnSuccessListener { documents ->
+                    for (documentGot in documents) {
+                        if(documentGot.data.get("correo").toString() == user.email.toString()){
+                            var testText = productTextInputEditText.getText()
+                            Log.d("Nombre: " , testText.toString())
+                            var testText3 = priceTextInputEditText.getText()
+                            Log.d("Precio: " , testText3.toString())
+                            listaProductos.put(productTextInputEditText.text.toString(), priceTextInputEditText.text.toString().toDouble())
+                            var data1 =hashMapOf("productosDeseado" to listaProductos)
+                            dataBase.collection("users").document(documentGot.id.toString())
+                                .set(data1, SetOptions.merge())
+                        }
                     }
+                    view?.findNavController()?.navigate(R.id.perfilesToFirst)
+                } .addOnFailureListener { exception ->
+                    Log.w(ContentValues.TAG, "Error getting documents: ", exception)
                 }
-            } .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting documents: ", exception)
-                }
+        }
     }
 
 

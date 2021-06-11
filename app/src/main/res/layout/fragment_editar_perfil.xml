@@ -15,10 +15,9 @@
             android:id="@+id/fotoUsuarioEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="56dp"
             android:src="@drawable/boy2_"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,21 +36,27 @@
             android:id="@+id/textView21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
             android:text="Nombre"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/nombreEditar"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fotoUsuarioEditar" />
+            app:layout_constraintTop_toBottomOf="@+id/fotoUsuarioEditar"
+            app:layout_constraintVertical_bias="0.701" />
 
         <EditText
             android:id="@+id/nombreEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="104dp"
             android:ems="10"
+            android:fontFamily="@font/poppins"
             android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fotoUsuarioEditar" />
 
@@ -59,11 +64,12 @@
             android:id="@+id/cambiarContrasena"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="244dp"
+            android:layout_marginTop="220dp"
             android:ems="10"
+            android:fontFamily="@font/poppins"
             android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fotoUsuarioEditar" />
 
@@ -71,11 +77,16 @@
             android:id="@+id/textView22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
             android:text="Nueva Contraseña"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/cambiarContrasena"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nombreEditar" />
+            app:layout_constraintTop_toBottomOf="@+id/nombreEditar"
+            app:layout_constraintVertical_bias="0.415" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

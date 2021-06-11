@@ -23,13 +23,6 @@
             android:title="Añadir Dinero"
             android:icon="@drawable/ic_baseline_attach_money_24"/>
 
-
-        <item
-            android:id="@+id/bancosCercanos"
-            android:title="Bancos Cercanos"
-            android:icon="@drawable/ic_baseline_account_balance_24"/>
-
-
         <item
             android:id="@+id/metas"
             android:title="Metas"
@@ -59,15 +52,9 @@
             android:icon="@drawable/ic_baseline_security_24"/>
 
         <item
-            android:id="@+id/contacto"
-            android:title="Contacto"
-            android:icon="@drawable/ic_baseline_contact_support_24"/>
-
-        <item
             android:id="@+id/terminos"
             android:title="Terminos y condiciones"
             android:icon="@drawable/ic_baseline_feedback_24"/>
-
 
         <item
             android:id="@+id/nosotros"
