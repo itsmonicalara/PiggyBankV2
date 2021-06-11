@@ -3,6 +3,7 @@ package edu.itesm.piggybank
 import android.app.Activity.RESULT_OK
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.ContentValues
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -15,15 +16,19 @@ import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
-import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.label.ImageLabeling
 import com.google.mlkit.vision.label.defaults.ImageLabelerOptions
 import edu.itesm.piggybank.databinding.FragmentAnadirProductoBinding
 import kotlinx.android.synthetic.main.fragment_anadir_producto.*
-import kotlinx.android.synthetic.main.fragment_piggy.*
+import kotlinx.android.synthetic.main.fragment_perfiles.*
 import java.io.IOException
 import java.util.*
 
@@ -34,29 +39,22 @@ class AnadirProducto : DialogFragment(), DatePickerDialog.OnDateSetListener {
     var imageUri: Uri? = null
     var imageML: InputImage? = null
     val labeler = ImageLabeling.getClient(ImageLabelerOptions.DEFAULT_OPTIONS)
-    val datePicker =
-        MaterialDatePicker.Builder.datePicker()
-            .setTitleText("Select date")
-            .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-            .build()
 
     private var binding: FragmentAnadirProductoBinding? = null
+    private lateinit var dataBase : FirebaseFirestore
+    private var emailUsuario = ""
+    private var selectedDate = ""
+    private var listaProductos = HashMap<Any,Any>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        dataBase = Firebase.firestore
+        getDataUser()
     }
 
     private fun openGallery() {
         val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
         startActivityForResult(gallery, PICK_IMAGE)
-    }
-
-    private fun savePhoto(){
-
-    }
-
-    private fun pruebaDate(){
-        datePicker.show(getParentFragmentManager(), "datePicker")
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -71,16 +69,62 @@ class AnadirProducto : DialogFragment(), DatePickerDialog.OnDateSetListener {
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        val selectedDate = dayOfMonth.toString() + " / " + (month + 1) + " / " + year
-        Log.d(selectedDate, "Selected Date")
-        dateMeta.setText("Is this working?")
-        //dateMeta.setText(selectedDate)
+        selectedDate = dayOfMonth.toString() + " / " + (month + 1) + " / " + year
+        Log.d("Selected Date", selectedDate)
     }
 
     fun showDatePickerDialog() {
         val newFragment = AnadirProducto()
         newFragment.show(getParentFragmentManager(), "datePicker")
     }
+
+    fun getDataUser(){
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val email = user.email
+        }
+        val capitalCities = dataBase.collection("users")
+        capitalCities.get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    if(document.data.get("correo").toString() == user.email.toString()){
+                        Log.d(ContentValues.TAG, "existe")
+                        emailUsuario = document.data.get("correo").toString()
+                        listaProductos = document.data.get("productosDeseado") as HashMap<Any, Any>
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents: ", exception)
+            }
+
+    }
+
+    fun nuevaConfiguracion(){
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val email = user.email
+        }
+        val capitalCities = dataBase.collection("users")
+        capitalCities.get()
+            .addOnSuccessListener { documents ->
+                for (documentGot in documents) {
+                    if(documentGot.data.get("correo").toString() == user.email.toString()){
+                        var testText = productTextInputEditText.getText()
+                        Log.d("Nombre: " , testText.toString())
+                        var testText3 = priceTextInputEditText.getText()
+                        Log.d("Precio: " , testText3.toString())
+                        listaProductos.put(productTextInputEditText.text.toString(), priceTextInputEditText.text.toString().toDouble())
+                        var data1 =hashMapOf("productosDeseado" to listaProductos)
+                        dataBase.collection("users").document(documentGot.id.toString())
+                            .set(data1, SetOptions.merge())
+                    }
+                }
+            } .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents: ", exception)
+                }
+    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -132,11 +176,16 @@ class AnadirProducto : DialogFragment(), DatePickerDialog.OnDateSetListener {
             openGallery()
         }
         binding!!.dateMeta.setOnClickListener {
-            //showDatePickerDialog()
-            pruebaDate()
+            showDatePickerDialog()
         }
         binding!!.agregarButton.setOnClickListener {
-            savePhoto()
+            nuevaConfiguracion()
+            var testText2 = autoCompleteTextView3.getText()
+            Log.d("Categoria: " , testText2.toString())
+
+            dateMeta.setText(selectedDate)
+            var testText4 = dateMeta.getText()
+            Log.d("Fecha: " , testText4.toString())
         }
         return binding!!.root
     }

@@ -10,7 +10,7 @@ data class Usuario(
     var nombre: String,
     var correo: String,
     var cochinito: Int,
-    var productosDeseado: List<ProductoDeseado>,
+    var productosDeseado: HashMap<String, Double>,
     var incremento: HashMap<String, Double>,
     var decremento: HashMap<String, Double>,
     var plan: String
@@ -20,7 +20,7 @@ data class Usuario(
 data class ProductoDeseado(var producto: Producto, var cantidadAhorrada:Int, var fechaObtener: Date) : Parcelable
 
 @Parcelize
-data class Producto(var nombre: String, var descripcion:String, var precio: Int) : Parcelable
+data class Producto(var nombre: String, var categoria:String, var precio: Int, var fechaObtener: Date) : Parcelable
 
 @Parcelize
 data class Incrementos(var cantidad:Int, var motivo:String, var uso: String) : Parcelable
