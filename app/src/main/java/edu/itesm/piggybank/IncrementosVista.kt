@@ -45,6 +45,7 @@ class IncrementosVista : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         getDataUser()
         initRecycler()
+        initRecyclerDec()
     }
 
     fun initRecycler(){
@@ -52,6 +53,20 @@ class IncrementosVista : Fragment() {
         incAdapter = IncrementosAdapter(incrementos)
         recycler_incremento.layoutManager = LinearLayoutManager(this.context)
         recycler_incremento.adapter = incAdapter
+        for (item in 0..incrementosBase.size+1){
+            Log.e("","item")
+            val incremento = IncrementoBase("Cumpleaños",500)
+            incrementos.add(incremento)
+        }
+
+
+    }
+
+    fun initRecyclerDec(){
+        incrementos = ArrayList<IncrementoBase>()
+        incAdapter = IncrementosAdapter(incrementos)
+        recycler_decrementos.layoutManager = LinearLayoutManager(this.context)
+        recycler_decrementos.adapter = incAdapter
         for (item in 0..incrementosBase.size+1){
             Log.e("","item")
             val incremento = IncrementoBase("Cumpleaños",500)

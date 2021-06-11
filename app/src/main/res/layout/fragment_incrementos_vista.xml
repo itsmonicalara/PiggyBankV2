@@ -9,11 +9,49 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_incremento"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="407dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.194"
+        tools:listitem="@layout/renglon_layout_incremento" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Incrementos"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_incremento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Decrementos"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_decrementos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_incremento" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_decrementos"
+        android:layout_width="409dp"
+        android:layout_height="258dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView31"
         tools:listitem="@layout/renglon_layout_incremento" />
 </androidx.constraintlayout.widget.ConstraintLayout>
