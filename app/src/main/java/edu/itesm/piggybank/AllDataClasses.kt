@@ -12,7 +12,8 @@ data class Usuario(
     var cochinito: Int,
     var productosDeseado: List<ProductoDeseado>,
     var incremento: HashMap<String, Double>,
-    var decremento: HashMap<String, Double>
+    var decremento: HashMap<String, Double>,
+    var plan: String
 ) : Parcelable
 
 @Parcelize

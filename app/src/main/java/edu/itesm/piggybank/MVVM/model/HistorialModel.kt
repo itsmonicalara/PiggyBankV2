@@ -1,3 +1,3 @@
 package edu.itesm.piggybank.MVVM.model
 
-data class HistorialModel(val razon: String, val cantidad: Double)
+data class HistorialModel(val nombre: String, val precio: Double, val cararectistica: String, val periodo: String)
