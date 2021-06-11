@@ -53,9 +53,6 @@ class FirstFragment : Fragment() {
         //drawerLayout.addDrawerListener(toggle)
         //toggle.syncState()
         //supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
-
         dataBase = Firebase.firestore
         getDataUser()
     }
@@ -101,15 +98,7 @@ class FirstFragment : Fragment() {
                 R.id.privacidad -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_privacidadFragment)
                 R.id.terminos -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_terminosFragment)
                 R.id.nosotros -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_nosotrosFragment)
-
-
-
-
-
-
-
                 R.id.cerrar ->  cerrarSesion()
-
             }
             true
         }
