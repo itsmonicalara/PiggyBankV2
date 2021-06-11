@@ -69,7 +69,7 @@ class IncrementosVista : Fragment() {
         recycler_decrementos.adapter = incAdapter
         for (item in 0..incrementosBase.size+1){
             Log.e("","item")
-            val incremento = IncrementoBase("Cumpleaños",500)
+            val incremento = IncrementoBase("inversión",300)
             incrementos.add(incremento)
         }
 
