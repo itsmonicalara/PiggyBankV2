@@ -66,6 +66,9 @@
         <action
             android:id="@+id/action_firstFragment_to_metasFragment"
             app:destination="@id/metasFragment" />
+        <action
+            android:id="@+id/firstToIncrementos"
+            app:destination="@id/incrementosVista" />
     </fragment>
     <fragment
         android:id="@+id/perfilesFragment"
@@ -192,4 +195,9 @@
         android:name="edu.itesm.piggybank.MetasFragment"
         android:label="fragment_metas"
         tools:layout="@layout/fragment_metas" />
+    <fragment
+        android:id="@+id/incrementosVista"
+        android:name="edu.itesm.piggybank.IncrementosVista"
+        android:label="fragment_incrementos_vista"
+        tools:layout="@layout/fragment_incrementos_vista" />
 </navigation>

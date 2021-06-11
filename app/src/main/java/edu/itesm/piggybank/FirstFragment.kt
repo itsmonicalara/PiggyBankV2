@@ -92,6 +92,7 @@ class FirstFragment : Fragment() {
                 R.id.anadirDinero -> view?.findNavController()?.navigate(actionMas)
                 R.id.metas -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_metasFragment)
                 R.id.historial -> view?.findNavController()?.navigate(R.id.firstToHistory)
+                R.id.planes -> view?.findNavController()?.navigate(R.id.firstToIncrementos)
 
                 R.id.ajustes -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_settingsFragment)
                 R.id.ayuda -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_ajustesFragment)
@@ -99,6 +100,7 @@ class FirstFragment : Fragment() {
                 R.id.terminos -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_terminosFragment)
                 R.id.nosotros -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_nosotrosFragment)
                 R.id.cerrar ->  cerrarSesion()
+
             }
             true
         }
