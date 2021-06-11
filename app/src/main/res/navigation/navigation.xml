@@ -69,6 +69,9 @@
         <action
             android:id="@+id/firstToIncrementos"
             app:destination="@id/incrementosVista" />
+        <action
+            android:id="@+id/action_firstFragment_to_viewActivity"
+            app:destination="@id/viewActivity" />
     </fragment>
     <fragment
         android:id="@+id/perfilesFragment"
@@ -200,4 +203,9 @@
         android:name="edu.itesm.piggybank.IncrementosVista"
         android:label="fragment_incrementos_vista"
         tools:layout="@layout/fragment_incrementos_vista" />
+    <activity
+        android:id="@+id/viewActivity"
+        android:name="edu.itesm.piggybank.MVP.view.ViewActivity"
+        android:label="activity_view"
+        tools:layout="@layout/activity_view" />
 </navigation>

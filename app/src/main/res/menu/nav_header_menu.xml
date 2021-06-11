@@ -14,11 +14,6 @@
             android:icon="@drawable/ic_baseline_add_24"/>
 
         <item
-            android:id="@+id/calendario"
-            android:title="Calendario"
-            android:icon="@drawable/ic_baseline_calendar_today_24"/>
-
-        <item
             android:id="@+id/anadirDinero"
             android:title="Añadir Dinero"
             android:icon="@drawable/ic_baseline_attach_money_24"/>
@@ -31,14 +26,19 @@
         <item
             android:id="@+id/historial"
             android:title="Planes"
-            android:icon="@drawable/historial"
-            />
+            android:icon="@drawable/historial"/>
 
         <item
             android:id="@+id/planes"
             android:title="Historial"
-            android:icon="@drawable/historial"
-            />
+            android:icon="@drawable/historial"/>
+
+        <item
+            android:id="@+id/ideas"
+            android:title="Ideas"
+            android:icon="@drawable/ic_outline_emoji_objects_24"/>
+
+
     </group>
     <group
         android:id="@+id/menu_bottom">

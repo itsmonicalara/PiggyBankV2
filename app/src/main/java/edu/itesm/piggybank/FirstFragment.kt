@@ -93,6 +93,7 @@ class FirstFragment : Fragment() {
                 R.id.metas -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_metasFragment)
                 R.id.historial -> view?.findNavController()?.navigate(R.id.firstToHistory)
                 R.id.planes -> view?.findNavController()?.navigate(R.id.firstToIncrementos)
+                R.id.ideas -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_viewActivity)
 
                 R.id.ajustes -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_settingsFragment)
                 R.id.ayuda -> view?.findNavController()?.navigate(R.id.action_firstFragment_to_ajustesFragment)
