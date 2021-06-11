@@ -25,6 +25,7 @@ class IncrementosVista : Fragment() {
     private lateinit var incrementos: ArrayList<IncrementoBase>
     private var clave = ""
     private  var incrementosBase = hashMapOf<String, Double?>()
+    private  var decrementosBase = hashMapOf<String, Double?>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +55,6 @@ class IncrementosVista : Fragment() {
         recycler_incremento.layoutManager = LinearLayoutManager(this.context)
         recycler_incremento.adapter = incAdapter
         for (item in 0..incrementosBase.size+1){
-            Log.e("","item")
             val incremento = IncrementoBase("Cumpleaños",500)
             incrementos.add(incremento)
         }
@@ -67,7 +67,7 @@ class IncrementosVista : Fragment() {
         incAdapter = IncrementosAdapter(incrementos)
         recycler_decrementos.layoutManager = LinearLayoutManager(this.context)
         recycler_decrementos.adapter = incAdapter
-        for (item in 0..incrementosBase.size+1){
+        for (item in 0..decrementosBase.size+1){
             Log.e("","item")
             val incremento = IncrementoBase("inversión",300)
             incrementos.add(incremento)
@@ -89,6 +89,7 @@ class IncrementosVista : Fragment() {
                         Log.d(ContentValues.TAG, "existe")
                         clave = document.data.get("correo").toString()
                         incrementosBase = document.data.get("incremento") as HashMap<String, Double?>
+                        decrementosBase = document.data.get("decremento") as HashMap<String, Double?>
                     }
                 }
             }
